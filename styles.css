@@ -129,3 +129,34 @@ a:hover{ color:#c7e8ff; }
     margin:0 auto;
   }
 }
+
+@media only screen and (max-width:430px){
+  .site-wrap{ padding:0 0.85rem; }
+  .posts-grid{ grid-template-columns:minmax(0, 1fr); }
+
+  .author{
+    grid-template-columns:1fr;
+    gap:0.75rem;
+  }
+
+  .author img{
+    width:100%;
+    max-width:none;
+    height:auto;
+    object-fit:contain;
+    margin:0;
+  }
+
+  .author > div{
+    width:100%;
+    max-width:none;
+  }
+
+  .newsletter form{
+    flex-direction:column;
+  }
+
+  .newsletter button{
+    width:100%;
+  }
+}
