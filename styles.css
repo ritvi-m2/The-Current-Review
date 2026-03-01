@@ -1,0 +1,114 @@
+/* Typography and palette */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap');
+
+:root{
+  --navy: #0a1f3d;
+  --slate: #355070;
+  --accent: #f2a84b;
+  --text: #edf3ff;
+  --muted: #b7c7de;
+  --bg: #061a33;
+  --bg-elev: rgba(255,255,255,0.08);
+  --bg-elev-strong: rgba(255,255,255,0.12);
+  --line: rgba(183,199,222,0.28);
+}
+
+/* Global */
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(900px 600px at 15% -10%, rgba(66, 124, 201, 0.22), transparent 55%),
+    radial-gradient(900px 600px at 100% 0%, rgba(40, 88, 158, 0.18), transparent 50%);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Header / Navigation */
+header{
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: linear-gradient(rgba(6,26,51,0.94), rgba(10,31,61,0.78));
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid var(--line);
+}
+.site-wrap{ max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+.brand{ display:flex; align-items:center; gap:0.75rem; padding:0.75rem 0; justify-content:space-between; }
+.logo{ font-family: 'Playfair Display', serif; font-weight:700; color:var(--text); font-size:1.6rem; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem; }
+.logo-icon{ width:22px; height:22px; min-width:22px; min-height:22px; object-fit:contain; border-radius:4px; flex-shrink:0; display:block; }
+.logo .mark{ display:inline-block; width:34px; height:34px; background:var(--navy); color:white; border-radius:6px; font-size:0.95rem; display:flex; align-items:center; justify-content:center; }
+.nav{ list-style:none; display:flex; gap:1rem; margin:0; padding:0; align-items:center; }
+.nav a{ color:var(--text); text-decoration:none; font-weight:600; opacity:0.9; }
+.nav a:hover{ opacity:1; color:#ffffff; }
+
+main{ max-width:1100px; margin:1.25rem auto; padding:0 1rem; }
+
+/* Smooth scroll for in-page anchors */
+html{ scroll-behavior:smooth; }
+
+/* Hero */
+.hero{ position:relative; border-radius:12px; color: #ffffff; overflow:hidden; min-height:340px; display:flex; align-items:center; }
+.hero::before{ content:''; position:absolute; inset:0; }
+.hero.hero-with-bg::before{ background-image: linear-gradient(rgba(3,19,34,0.78), rgba(3,19,34,0.62)); }
+.hero-bg{ position:absolute; inset:0; background-image: url('posts/Beyond%20Lithium%20Batteries%20Why%20Sodium%20is%20the%20Future/Cover.png'); background-size:cover; background-position:center; filter:grayscale(22%) contrast(92%) brightness(58%); }
+.hero.hero-with-bg{ color: white; }
+.hero-inner{ position:relative; z-index:2; padding:2.25rem; display:flex; gap:2rem; align-items:center; }
+.hero-content{ max-width:680px; }
+.hero h1{ font-family:'Playfair Display', serif; font-size:3rem; margin:0 0 .5rem 0; letter-spacing:-0.5px; }
+.hero-title{ display:flex; align-items:center; gap:0.7rem; }
+.hero-title-logo{ width:52px; height:52px; object-fit:contain; border-radius:8px; }
+.hero p{ margin:0 0 1rem 0; }
+.hero.hero-with-bg p{ color:rgba(237,243,255,0.93); }
+.hero.hero-with-bg h1{ color: #ffffff; }
+.cta-button{ display:inline-block; background:var(--accent); color:#11233f; padding:0.72rem 1.18rem; border-radius:8px; text-decoration:none; font-weight:700; font-size:1.05rem; box-shadow:none; border:none; cursor:pointer; font-family:inherit; line-height:1.2; }
+
+/* Posts Grid */
+.posts-section{ margin-top:1.25rem; }
+.posts-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:1rem; }
+.post-card{ background:var(--bg-elev); border:1px solid var(--line); border-radius:10px; overflow:hidden; box-shadow:0 10px 26px rgba(0,0,0,0.24); transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease; display:flex; flex-direction:column; }
+.post-card:hover{ transform:translateY(-6px); box-shadow:0 20px 42px rgba(0,0,0,0.34); border-color:rgba(242,168,75,0.45); }
+.post-thumb{ width:100%; height:160px; object-fit:cover; display:block; }
+.post-card .card-body{ padding:0.9rem 1rem 1.25rem 1rem; flex:1; }
+.post-card h3{ margin:0 0 0.5rem 0; font-family:'Playfair Display', serif; font-size:1.05rem; color:var(--text); }
+.post-card h3 a{ color:var(--text); text-decoration:none; }
+.post-card p.excerpt{ color:var(--muted); font-size:0.95rem; margin:0 0 0.75rem 0; }
+.post-card .date{ color:var(--muted); font-size:0.85rem; margin:0 0 0.45rem 0; }
+.read-more-wrap{ text-align:center; margin-top:1rem; }
+.extra-post{ display:none; }
+.posts-grid.show-all .extra-post{ display:flex; }
+
+/* Utility sections */
+.featured, .bio, .newsletter{ background:var(--bg-elev); border:1px solid var(--line); border-radius:10px; padding:1rem; margin-top:1rem; box-shadow:0 10px 22px rgba(0,0,0,0.2); }
+.author{ display:grid; grid-template-columns:220px 1fr; gap:0.9rem; align-items:stretch; }
+.author img{ width:100%; height:100%; border-radius:10px; object-fit:cover; }
+.newsletter form{ display:flex; gap:0.5rem; margin-top:0.5rem; }
+.newsletter input[type=email]{ flex:1; padding:0.6rem; border-radius:8px; border:1px solid var(--line); background:rgba(0,0,0,0.18); color:var(--text); }
+.newsletter button{ background:var(--accent); color:#11233f; padding:0.6rem 0.9rem; border-radius:8px; border:none; font-weight:600; }
+
+.question-form{ margin-top:0.75rem; }
+.question-box{ display:block; width:100%; max-width:100%; box-sizing:border-box; min-height:220px; border-radius:10px; border:1px solid var(--line); background:rgba(0,0,0,0.18); color:var(--text); padding:0.75rem; resize:vertical; font-family:inherit; font-size:1rem; line-height:1.5; }
+.question-actions{ margin:0.7rem 0 0 0; }
+.word-count{ margin-top:0.5rem; color:var(--muted); font-size:0.9rem; }
+
+/* Post content images (inside articles) */
+.post-image { max-width: 100%; height: auto; display: block; margin: 0.75rem auto; border-radius: 6px; }
+.image-caption { margin: 0.25rem auto 1rem auto; text-align: center; color: var(--muted); font-size: 0.95rem; }
+
+/* Post pages: ensure readable title and content */
+.post-hero{ background:transparent; color:#ffffff; }
+.post-hero .post-title{ font-family:'Playfair Display', serif; font-size:2rem; color:#ffffff; margin:0 0 0.5rem 0; }
+.post-hero .date{ color:var(--muted); font-size:0.95rem; margin:0 0 0.8rem 0; }
+.post-hero article{ background:var(--bg-elev); border:1px solid var(--line); padding:1rem; border-radius:8px; box-shadow:0 10px 24px rgba(0,0,0,0.25); }
+.post-hero{ display:block; padding-top:1rem; }
+.post-hero .post-title{ display:block; width:100%; }
+.site-title{ display:none; }
+
+/* Headings */
+h1,h2,h3{ color:#ffffff; }
+a{ color:#9fd7ff; }
+a:hover{ color:#c7e8ff; }
+
+@media (max-width:700px){ .hero{ min-height:260px } .hero h1{ font-size:1.6rem } .brand{ padding:0.5rem 0 } .logo{ font-size:1.25rem } .logo-icon{ width:20px; height:20px; min-width:20px; min-height:20px; } }
