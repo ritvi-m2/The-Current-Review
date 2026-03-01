@@ -111,4 +111,21 @@ h1,h2,h3{ color:#ffffff; }
 a{ color:#9fd7ff; }
 a:hover{ color:#c7e8ff; }
 
-@media (max-width:700px){ .hero{ min-height:260px } .hero h1{ font-size:1.6rem } .brand{ padding:0.5rem 0 } .logo{ font-size:1.25rem } .logo-icon{ width:20px; height:20px; min-width:20px; min-height:20px; } }
+@media (max-width:700px){
+  .hero{ min-height:260px }
+  .hero h1{ font-size:1.6rem }
+  .brand{ padding:0.5rem 0 }
+  .logo{ font-size:1.25rem }
+  .logo-icon{ width:20px; height:20px; min-width:20px; min-height:20px; }
+
+  .author{
+    grid-template-columns:1fr;
+    align-items:start;
+  }
+
+  .author img{
+    height:auto;
+    max-width:280px;
+    margin:0 auto;
+  }
+}
